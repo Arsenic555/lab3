@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Менеджер каталога";
+}
+
+<div>
+    <table border="2" bgcolor="gold">
+        <tr>
+            <td> <img src="/img/ui_del.png"> </td>
+            <td> Имя </td>
+            <td> Артикул </td>
+            <td> Описание </td>
+            <td> Цена </td>
+            <td> Количество </td>
+            <td> путь к картинке</td>
+        </tr>
+        @{int i = 0;}
+        @foreach (Product p in Model)
+        {
+            <tr>
+                <td><a asp-controller="Home" asp-action="DeleteItem" asp-route-i="@i"> <img src="/img/ui_del.png"> </a></td>
+                <td>@p.Name</td>
+                <td>@p.Id</td>
+                <td>@p.Desc</td>
+                <td>@p.Price</td>
+                <td>@p.Ammount</td>
+                <td>@p.Img</td>
+            </tr>
+        i++;
+        }
+    </table>
+    <br>
+    <a asp-area="" asp-controller="Home" asp-action="NewProduct"> --- Чтобы добавить товар нажмите сюда --- </a>
+
+</div>

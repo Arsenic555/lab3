@@ -1,0 +1,45 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Каталог";
+}
+
+<div class="main_part">
+    <div class="mp_cat">
+        <!--Таблица каталога-->
+        <div class="mp_cat_over">
+            <table id="mp_cat_list" width=100%>
+                <!-- Задание полей для таблицы -->
+                <tr>
+                    <td class="td_name"> Название </td>
+                    <td class="td_ID"> Артикул </td>
+                    <td class="td_price"> цена </td>
+                </tr>
+                <!-- Задание наполнения таблицы-->
+                @{int i = 0;}
+                @foreach (Product p in Model)
+                {
+                    <tr>
+                        <td class="td_name">  <a asp-area="" asp-controller="Home" asp-action="Index" asp-route-i="@i"> @p.Name </a> </td>
+                        <td class="td_ID">@p.Id</td>
+                        <td class="td_price">@p.Price</td>
+                    </tr>
+                    i++;
+                }
+            </table>
+        </div>
+    </div>
+
+    <!-- Изображение товара -->
+    <div class="mp_img" id="mp_img">
+        <img src="@ViewBag.Img" height=560 width=1000>
+    </div>
+    <!-- Описание товара -->
+    <div class="mp_about">
+        <div id="ab_name" class="ab_name"> @ViewBag.Name </div>
+        <div id="ab_ammo" class="ab_ammo"> Товара в наличии: @ViewBag.Ammount </div>
+        <div id="ab_desc" class="ab_desc"> @ViewBag.Desc </div>
+    </div>
+    <!-- Кнопка добавления товара -->
+    <button class="mp_com" onclick="main()"> Добавить в корзину </button>
+</div>

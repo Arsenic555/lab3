@@ -1,0 +1,44 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Оформление заказа";
+}
+
+<div id="shop_list" class="shop_list">
+    <div style="display:grid">
+        <table>
+            <tr>
+                Ваш Заказ:
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td> Наименование товара </td>
+                <td> Количество </td>
+                <td> Cтоимость </td>
+            </tr>
+        </table>
+        <table id="sl_list">
+        </table>
+        <div class="sl_sum" id="sl_sum"> Сумма заказа: </div>
+    </div>
+
+    <form asp-controller="Home" asp-action="AddItemToCart" method="post">
+        Имя
+        <br>
+        <input type="text" id="inp_name">
+        <br> Фамилия
+        <br>
+        <input type="text" id="inp_surname">
+        <br> Телефон
+        <br>
+        <input type="text" id="inp_phone">
+        <br> Выберите пункт выдачи
+        <br><select name="dp">
+                <option value="1">Центр1</option>
+                <option value="2">Центр2</option>
+                <option value="3">Центр3</option>
+            </select>
+        <br><input type="submit" value="Оформитть заказ">
+    </form>
+</div>

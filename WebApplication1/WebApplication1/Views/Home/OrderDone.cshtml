@@ -1,0 +1,11 @@
+﻿@model WebApplication1.Views.Home.OrderDoneModel
+@{
+    ViewData["Title"] = "Спасибо";
+}
+
+<div>
+    Спасибо за покупку!
+    <br>Номер Вашего заказа: @ViewBag.ord_id
+    <br>Когда Ваш заказ будет готов вы сможете забрать его в выбранном пункте выдачи.
+    <br><a  asp-controller="Home" asp-action="Index"> Нажмите сюда, чтобы вернуться в каталог. </a>
+</div>
